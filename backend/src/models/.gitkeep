@@ -1,0 +1,5 @@
+# This file exists to make Git track this empty folder.
+# Mongoose models (database schemas) will be added here in Step 2.
+# Example files to be created here:
+#   - User.js    (Schema: name, email, password, bio, profilePicture, createdAt)
+#   - Post.js    (Schema: user, content, createdAt)

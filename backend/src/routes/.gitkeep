@@ -1,0 +1,6 @@
+# This file exists to make Git track this empty folder.
+# API route files will be added here starting from Step 3.
+# Example files to be created here:
+#   - authRoutes.js    (POST /api/auth/register, POST /api/auth/login)
+#   - userRoutes.js    (GET /api/users/profile, PUT /api/users/profile)
+#   - postRoutes.js    (GET /api/posts, POST /api/posts)

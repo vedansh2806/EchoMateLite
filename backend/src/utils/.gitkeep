@@ -1,0 +1,5 @@
+# This file exists to make Git track this empty folder.
+# Utility/helper functions will be added here as needed.
+# Example files to be created here:
+#   - generateToken.js    (creates and returns a signed JWT for a given user ID)
+#   - sendResponse.js     (standardizes the API response format across the app)

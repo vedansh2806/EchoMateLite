@@ -1,0 +1,7 @@
+# This file exists to make Git track this empty folder.
+# Controllers will be added here in Step 3 (Auth) and Step 4 (Users, Posts).
+# Each controller file handles the business logic for one resource.
+# Example files to be created here:
+#   - authController.js    (register, login)
+#   - userController.js    (getProfile, updateProfile)
+#   - postController.js    (createPost, getFeed)

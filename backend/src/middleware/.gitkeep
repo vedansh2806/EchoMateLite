@@ -1,0 +1,5 @@
+# This file exists to make Git track this empty folder.
+# Middleware will be added here in Step 3 (Authentication Middleware).
+# Example files to be created here:
+#   - authMiddleware.js    (protect routes - validates JWT tokens)
+#   - errorMiddleware.js   (global error handler for consistent error responses)
