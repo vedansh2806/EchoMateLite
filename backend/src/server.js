@@ -21,6 +21,7 @@ const dotenv = require('dotenv');     // Loads variables from .env into process.
 
 // ---- Step 2: Import Internal Modules ----
 const connectDB = require('./config/db'); // Our database connection function
+const authRoutes = require('./routes/authRoutes'); // Authentication routes
 
 // ---- Step 3: Load Environment Variables ----
 // This MUST be called before any other code that uses process.env
@@ -66,6 +67,9 @@ app.use(cors(corsOptions));
 // ============================================================
 // API ROUTES
 // ============================================================
+
+// --- Authentication Routes ---
+app.use('/api/auth', authRoutes);
 
 // --- Health Check Route ---
 // Purpose: A simple API endpoint that can be called at any time
