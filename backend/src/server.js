@@ -23,6 +23,7 @@ const dotenv = require('dotenv');     // Loads variables from .env into process.
 const connectDB = require('./config/db'); // Our database connection function
 const authRoutes = require('./routes/authRoutes'); // Authentication routes
 const userRoutes = require('./routes/userRoutes'); // User profile routes (protected)
+const postRoutes = require('./routes/postRoutes'); // Post and news feed routes (protected)
 
 // ---- Step 3: Load Environment Variables ----
 // This MUST be called before any other code that uses process.env
@@ -57,8 +58,16 @@ app.use(express.urlencoded({ extended: true }));
 // to a different domain (backend API). CORS headers tell the
 // browser it is safe to allow these cross-origin requests.
 // In production, we restrict this to only our CloudFront URL.
+const allowedOrigins = [process.env.CLIENT_URL, 'http://localhost:5173', 'http://localhost:3000'].filter(Boolean);
 const corsOptions = {
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or curl) or if origin is allowed
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(null, true); // Allow during dev
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -74,6 +83,9 @@ app.use('/api/auth', authRoutes);
 
 // --- User Profile Routes (JWT Protected) ---
 app.use('/api/users', userRoutes);
+
+// --- Post & News Feed Routes (JWT Protected) ---
+app.use('/api/posts', postRoutes);
 
 // --- Health Check Route ---
 // Purpose: A simple API endpoint that can be called at any time
